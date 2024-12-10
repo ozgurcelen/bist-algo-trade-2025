@@ -41,6 +41,10 @@ def fetch_data():
     conn.close()
     return rows
 
+def fetch_data_2():
+    df = pd.read_sql('SELECT * FROM BIST_DATA_G', conn)
+    return df
+
 # Streamlit Arayüzü
 st.title("Veritabanı İşlemleri")
 
@@ -50,7 +54,7 @@ if st.button("Veritabanı Oluştur"):
 
 # Veritabanından veri çekme butonu
 if st.button("Verileri Göster"):
-    data = fetch_data()
+    data = fetch_data_2()
     if data:
         st.write("Tablodaki Veriler:")
         st.table(data)  # Veriyi tablo olarak gösterir
