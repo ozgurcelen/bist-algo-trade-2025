@@ -36,7 +36,7 @@ def create_database():
 def fetch_data():
     conn = sqlite3.connect('my_database.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM users')
+    cursor.execute('SELECT * FROM BIST_DATA_G')
     rows = cursor.fetchall()
     conn.close()
     return rows
