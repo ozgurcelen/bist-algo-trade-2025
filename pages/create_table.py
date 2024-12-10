@@ -10,14 +10,6 @@ import ssl
 # Veritabanından veri çekme fonksiyonu
 def fetch_data():
     conn = sqlite3.connect('db.sqlite3')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM BIST_DATA_G')
-    rows = cursor.fetchall()
-    conn.close()
-    return rows
-
-def fetch_data_2():
-    conn = sqlite3.connect('db.sqlite3')
     df = pd.read_sql('SELECT * FROM BIST_DATA_G', conn)
     return df
 
