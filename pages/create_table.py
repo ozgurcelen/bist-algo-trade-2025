@@ -126,7 +126,7 @@ if st.button("Veritabanını Güncelle"):
         hisse_liste = df_hisse['Kod'].values.tolist()
 
         # Veritabanını temizle
-        query_run(f"DELETE FROM {tablo_adi}")
+        #query_run(f"DELETE FROM {tablo_adi}")
 
         # Hisseler üzerinde döngü
         for x in hisse_liste:
