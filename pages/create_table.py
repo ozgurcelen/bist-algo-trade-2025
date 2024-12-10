@@ -60,7 +60,7 @@ if st.button("Verileri Göster"):
 
 # Ayarlar
 ssl._create_default_https_context = ssl._create_unverified_context
-db = "db.sqlite3"
+db = "my_database.db"
 tablo_adi = "BIST_DATA_G"
 warnings.filterwarnings("ignore")
 
@@ -115,7 +115,7 @@ def Hisse_Temel_Veriler():
 st.title("Borsa Veritabanı Güncelleme")
 
 # Tarih seçimi
-baslangic = st.text_input("Başlangıç Tarihi", value="2020-01-01")
+baslangic = st.text_input("Başlangıç Tarihi", value="2024-12-01")
 bitis = st.text_input("Bitiş Tarihi", value=gunun_tarihi())
 
 # Güncelleme butonu
@@ -123,7 +123,8 @@ if st.button("Veritabanını Güncelle"):
     try:
         # Hisselerin listesini al
         df_hisse = Hisse_Temel_Veriler()
-        hisse_liste = df_hisse['Kod'].values.tolist()
+        #hisse_liste = df_hisse['Kod'].values.tolist()
+        hisse_liste = ['THYAO','ASELS','BIMAS','ENKAI']
 
         # Veritabanını temizle
         #query_run(f"DELETE FROM {tablo_adi}")
@@ -132,7 +133,7 @@ if st.button("Veritabanını Güncelle"):
         for x in hisse_liste:
             try:
                 conn_f = sqlite3.connect(db)
-                df = get_hisse(x, baslangic, bitis, periyot="1D", bar="5000")
+                df = get_hisse(x, baslangic, bitis, periyot="1D", bar="100")
                 if not df.empty:
                     df.to_sql(tablo_adi, con=conn_f, if_exists='append', index=False)
                 conn_f.commit()
