@@ -9,7 +9,7 @@ import ssl
 
 # Veritabanı oluşturma fonksiyonu
 def create_database():
-    conn = sqlite3.connect('my_database.db')
+    conn = sqlite3.connect('db.sqlite3')
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
@@ -34,7 +34,7 @@ def create_database():
 
 # Veritabanından veri çekme fonksiyonu
 def fetch_data():
-    conn = sqlite3.connect('my_database.db')
+    conn = sqlite3.connect('db.sqlite3')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM BIST_DATA_G')
     rows = cursor.fetchall()
@@ -60,7 +60,7 @@ if st.button("Verileri Göster"):
 
 # Ayarlar
 ssl._create_default_https_context = ssl._create_unverified_context
-db = "my_database.db"
+db = "db.sqlite3"
 tablo_adi = "BIST_DATA_G"
 warnings.filterwarnings("ignore")
 
