@@ -34,8 +34,8 @@ st.title("Hisse Senedi Verileri")
 
 # Kullanıcıdan giriş al
 hisse = st.text_input("Hisse Kodu:", "GARAN")
-baslangic = st.date_input("Başlangıç Tarihi", datetime(2023, 1, 1))
-bitis = st.date_input("Bitiş Tarihi", datetime(2023, 12, 31))
+baslangic = st.date_input("Başlangıç Tarihi", datetime(2024, 1, 1))
+bitis = st.date_input("Bitiş Tarihi", datetime(2024, 12, 10))
 periyot = st.selectbox("Periyot", ["1", "5", "15", "30", "60", "D"], index=5)
 bar = st.number_input("Çubuk Sayısı (Bar)", min_value=1, value=100)
 
