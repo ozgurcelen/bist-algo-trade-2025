@@ -18,7 +18,7 @@ st.title("Veritabanı İşlemleri")
 
 # Veritabanından veri çekme butonu
 if st.button("Verileri Göster"):
-    data = fetch_data_2()
+    data = fetch_data()
     st.table(data)  # Veriyi tablo olarak gösterir
 
 
