@@ -43,7 +43,6 @@ def fetch_data():
 
 def fetch_data_2():
     conn = sqlite3.connect('db.sqlite3')
-    cursor = conn.cursor()
     df = pd.read_sql('SELECT * FROM BIST_DATA_G', conn)
     return df
 
