@@ -7,6 +7,9 @@ import warnings
 from urllib import request
 import ssl
 
+conn = sqlite3.connect('db.sqlite3')
+cursor = conn.cursor()
+
 # Veritabanından veri çekme fonksiyonu
 def fetch_data():
     conn = sqlite3.connect('db.sqlite3')
@@ -109,3 +112,24 @@ if st.button("Veritabanını Güncelle"):
         st.success("Veritabanı başarıyla güncellendi!")
     except Exception as e:
         st.error(f"Hata oluştu: {e}")
+
+def create_table():
+    try:
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS tablo_adi (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                ad TEXT NOT NULL,
+                yas INTEGER NOT NULL,
+                sehir TEXT
+            );
+        ''')
+        conn.commit()
+        st.success("Tablo başarıyla oluşturuldu!")
+    except Exception as e:
+        st.error(f"Tablo oluşturulurken hata oluştu: {e}")
+
+st.title("SQLite Tablo Oluşturucu")
+
+# Buton oluştur
+if st.button("Tabloyu Oluştur"):
+    create_table()
