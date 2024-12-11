@@ -3,7 +3,8 @@ import datetime
 import numpy as np
 import pandas as pd
 import streamlit as st
-from st_aggrid import AgGrid, GridOptionsBuilder, JsCode, GridUpdateMode
+import st_aggrid as sa
+
 
 
 now = int(datetime.datetime.now().timestamp())
@@ -92,10 +93,10 @@ class BtnCellRenderer {
     }
 };
 """
-BtnCellRenderer = JsCode(jsfnc)
+BtnCellRenderer = sa.JsCode(jsfnc)
 
 df = make_data()
-gb = GridOptionsBuilder.from_dataframe(df)
+gb = sa.GridOptionsBuilder.from_dataframe(df)
 
 gb.configure_default_column(editable=True)
 grid_options = gb.build()
@@ -148,7 +149,7 @@ clicked cells will appear in the response dataframe
 tabs = st.tabs(["AgGrid", "Response Data"])
 
 with tabs[0]:
-    response = AgGrid(
+    response = sa.AgGrid(
         df,
         theme="streamlit",
         key="table1",
