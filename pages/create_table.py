@@ -82,7 +82,7 @@ def Hisse_Temel_Veriler():
 st.title("Borsa Veritabanı Güncelleme")
 
 # Tarih seçimi
-baslangic = st.text_input("Başlangıç Tarihi", value="2024-12-01")
+baslangic = st.text_input("Başlangıç Tarihi", value="2024-01-01")
 bitis = st.text_input("Bitiş Tarihi", value=gunun_tarihi())
 
 # Güncelleme butonu
