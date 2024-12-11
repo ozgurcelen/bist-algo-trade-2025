@@ -3,6 +3,13 @@ import pandas as pd
 import requests
 from datetime import datetime
 
+LOGGER = get_logger(__name__)
+st.set_page_config(
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded",
+
+)
 
 def example_metric():
     col1, col2, col3,col4,col5 = st.columns(5)
