@@ -30,10 +30,10 @@ def get_hisse(hisse, baslangic, bitis, periyot, bar):
     return df
 
 # Streamlit uygulaması
-st.title("Hisse Senedi Verileri")
+st.title("Bist Algo Trade")
 
 # Kullanıcıdan giriş al
-hisse = st.text_input("Hisse Kodu:", "GARAN")
+hisse = st.text_input("Hisse Kodu:", "KOZAL")
 baslangic = st.date_input("Başlangıç Tarihi", datetime(2024, 1, 1))
 bitis = st.date_input("Bitiş Tarihi", datetime(2024, 12, 10))
 periyot = st.selectbox("Periyot", ["1", "5", "15", "30", "60", "D"], index=5)
