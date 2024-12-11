@@ -10,11 +10,10 @@ import ssl
 # Veritabanından veri çekme fonksiyonu
 def fetch_data():
     conn = sqlite3.connect('db.sqlite3')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM BIST_DATA_G')
-    rows = cursor.fetchall()
+    query = "SELECT name FROM sqlite_master WHERE type='table'"
+    df = pd.read_sql_query(query, conn)
     conn.close()
-    return rows
+    return df
 
 # Streamlit Arayüzü
 st.title("Veritabanı İşlemleri")
