@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 from datetime import datetime
 
-LOGGER = get_logger(__name__)
+
 st.set_page_config(
     page_icon="🧊",
     layout="wide",
