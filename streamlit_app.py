@@ -3,6 +3,19 @@ import pandas as pd
 import requests
 from datetime import datetime
 
+
+def example_metric():
+    col1, col2, col3,col4,col5 = st.columns(5)
+
+    col1.metric(label="Gain", value=5000, delta=1000)
+    col2.metric(label="Loss", value=5000, delta=-1000)
+    col3.metric(label="BIST", value=9350, delta=250)
+    col4.metric(label="BIST30", value=13250, delta=511)
+    col5.metric(label="STREND", value=11950, delta=1125)
+
+
+example_metric()
+
 # get_hisse fonksiyonu
 def get_hisse(hisse, baslangic, bitis, periyot, bar):
     dt_baslangic = int(datetime.strptime(baslangic, "%Y-%m-%d").timestamp())
@@ -47,15 +60,3 @@ if st.button("Verileri Getir"):
         st.dataframe(df)
     else:
         st.error("Veri çekilemedi. Lütfen tekrar deneyin.")
-
-def example_metric():
-    col1, col2, col3,col4,col5 = st.columns(5)
-
-    col1.metric(label="Gain", value=5000, delta=1000)
-    col2.metric(label="Loss", value=5000, delta=-1000)
-    col3.metric(label="BIST", value=9350, delta=250)
-    col4.metric(label="BIST30", value=13250, delta=511)
-    col5.metric(label="STREND", value=11950, delta=1125)
-
-
-example_metric()
